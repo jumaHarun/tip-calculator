@@ -1,13 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tip Calculator | Juma Harun</title>
+</head>
+
+<body>
+  <div id="container">
+    <header class="header">
+      <div class="header-img">
+        <img src="/public/images/logo.svg" alt="Splitter logo" />
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="calc">
+        <div class="bill">
+          <h4 class="title">Bill</h4>
+
+          <div class="input-wrapper">
+            <label for="bill">
+              <img src="/public/images/icon-dollar.svg" alt="dollar sign icon">
+            </label>
+            <input type="number" name="bill" id="bill" />
+          </div>
+        </div>
+
+        <div class="tip-percentage">
+          <h4 class="title">Select Tip %</h4>
+
+          <div class="input-wrapper">
+            <button class="btn tip-btn">5%</button>
+            <button class="btn tip-btn">10%</button>
+            <button class="btn tip-btn">15%</button>
+            <button class="btn tip-btn">25%</button>
+            <button class="btn tip-btn">50%</button>
+
+            <input type="number" name="custom-tip" id="custom-tip" placeholder="Custom">
+          </div>
+        </div>
+
+        <div class="people">
+          <h4 class="title">Number of People</h4>
+
+          <div class="input-wrapper">
+            <label for="people-qty">
+              <img src="/public/images/icon-person.svg" alt="person icon">
+            </label>
+
+            <input type="number" name="people-qty" id="people-qty" placeholder="1">
+          </div>
+        </div>
+      </section>
+
+      <section class="results">
+        <div class="tip-amount">
+          <h4 class="result-title">
+            Tip Amount
+            <span class="title-span">/ person</span>
+          </h4>
+
+          <p class="result-text">$4.27</p>
+        </div>
+
+        <div class="total-amount">
+          <h4 class="result-title">
+            Total
+            <span class="title-span">/ person</span>
+          </h4>
+
+          <p class="result-text">$32.79</p>
+        </div>
+
+        <div class="reset">
+          <button class="btn reset-btn">RESET</button>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="/main.js"></script>
+</body>
+
 </html>
