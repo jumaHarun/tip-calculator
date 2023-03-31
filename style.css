@@ -1,11 +1,11 @@
 @font-face {
     font-family: 'SpaceMonoRegular';
-    src: url('./public/assests/fonts/SpaceMono-Regular.ttf');
+    src: url('/assests/fonts/SpaceMono-Regular.ttf');
 }
 
 @font-face {
     font-family: 'SpaceMonoBold';
-    src: url('./public/assests/fonts/SpaceMono-Bold.ttf');
+    src: url('/assests/fonts/SpaceMono-Bold.ttf');
 }
 
 :root {
