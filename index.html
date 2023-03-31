@@ -9,6 +9,7 @@
 </head>
 
 <body>
+  <!-- <div id="App"></div> -->
   <div class="container">
     <header class="header">
       <div class="header-img">
@@ -23,9 +24,9 @@
 
           <div class="input-wrapper flex">
             <label for="bill" class="icon">
-              <img src="/public/assests/images/icon-dollar.svg" alt="dollar sign icon">
+              <img src="/public/assests/images/icon-dollar.svg" alt="dollar sign icon" />
             </label>
-            <input type="number" name="bill" id="bill" />
+            <input type="number" name="bill" id="bill" data-input="bill" min="1" placeholder="0" />
           </div>
         </div>
 
@@ -33,13 +34,24 @@
           <h4 class="title">Select Tip %</h4>
 
           <div class="btn-wrapper grid">
-            <button class="btn tip-btn">5%</button>
-            <button class="btn tip-btn">10%</button>
-            <button class="btn tip-btn selected">15%</button>
-            <button class="btn tip-btn">25%</button>
-            <button class="btn tip-btn">50%</button>
+            <button class="btn tip-btn" data-btn="tip" value="5">
+              5%
+            </button>
+            <button class="btn tip-btn" data-btn="tip" value="10">
+              10%
+            </button>
+            <button class="btn tip-btn" data-btn="tip" value="15">
+              15%
+            </button>
+            <button class="btn tip-btn" data-btn="tip" value="25">
+              25%
+            </button>
+            <button class="btn tip-btn" data-btn="tip" value="50">
+              50%
+            </button>
 
-            <input type="number" name="custom-tip" id="custom-tip" class="custom" placeholder="Custom">
+            <input type="number" name="custom-tip" id="custom-tip" class="custom" placeholder="Custom"
+              data-input="custom-tip" min="1" />
           </div>
         </div>
 
@@ -48,10 +60,10 @@
 
           <div class="input-wrapper flex">
             <label for="people-qty" class="icon">
-              <img src="/public/assests/images/icon-person.svg" alt="person icon">
+              <img src="/public/assests/images/icon-person.svg" alt="person icon" />
             </label>
 
-            <input type="number" name="people-qty" id="people-qty" placeholder="1">
+            <input type="number" name="people-qty" id="people-qty" placeholder="0" data-input="people-qty" min="1" />
           </div>
         </div>
       </section>
@@ -63,7 +75,7 @@
             <span class="title-span">/ person</span>
           </h4>
 
-          <p class="result-text">$4.27</p>
+          <p class="result-text" id="tipAmount">$0.00</p>
         </div>
 
         <div class="total-amount flex">
@@ -72,11 +84,13 @@
             <span class="title-span">/ person</span>
           </h4>
 
-          <p class="result-text">$32.79</p>
+          <p class="result-text" id="totalAmount">$0.00</p>
         </div>
 
         <div class="reset">
-          <button class="btn reset-btn">RESET</button>
+          <button class="btn reset-btn" data-btn="reset">
+            RESET
+          </button>
         </div>
       </section>
     </main>

@@ -148,12 +148,16 @@ section div {
 
 .header {
     padding-block: 2em;
+
+    height: 15vh;
 }
 
 .main {
     background-color: var(--white);
     border-radius: 10px 10px 0 0;
     padding: 1em 2em;
+
+    height: 85vh;
 }
 
 .input-wrapper {
@@ -241,6 +245,7 @@ section div {
 
     .header {
         margin-bottom: 2em;
+        height: auto;
     }
 
     .main {
@@ -248,14 +253,15 @@ section div {
         grid-template-columns: repeat(2, 1fr);
         gap: 1em;
 
+        height: auto;
         border-radius: 10px;
-        padding-block: 2em;
+        padding-block: 2.5em;
     }
 
     button,
     input,
     .result-text {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
 
     .btn-wrapper {
@@ -279,54 +285,10 @@ section div {
     button,
     input,
     .result-text {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
 
     .icon {
         width: 20px;
     }
 }
-
-/* 
-For Mobile Devices – 320px — 480px (20rem - 30rem).
-iPads and Tablets – 481px — 768px (30.07rem - 48rem).
-Laptops and small screen – 769px — 1024px (48.07rem - 64rem).
-Large screens and Desktops – 1025px — 1200px (64.07rem - 75rem).
-TV and Extra Large Screens – 1201px and more (75.07rem & 
-
-# Front-end Style Guide
-
-## Layout
-
-The designs were created to the following widths:
-
-- Mobile: 375px
-- Desktop: 1440px
-
-## Colors
-
-### Primary
-
-- Strong cyan: hsl(172, 67%, 45%)
-
-### Neutral
-
-- Very dark cyan: hsl(183, 100%, 15%)
-- Dark grayish cyan: hsl(186, 14%, 43%)
-- Grayish cyan: hsl(184, 14%, 56%)
-- Light grayish cyan: hsl(185, 41%, 84%)
-- Very light grayish cyan: hsl(189, 41%, 97%)
-- White: hsl(0, 0%, 100%)
-
-## Typography
-
-### Body Copy
-
-- Font size (form inputs): 24px
-
-### Font
-
-- Family: [Space Mono](https://fonts.google.com/specimen/Space+Mono)
-- Weights: 700
-
-*/
