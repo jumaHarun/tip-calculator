@@ -9,10 +9,10 @@
 </head>
 
 <body>
-  <div id="container">
+  <div class="container">
     <header class="header">
       <div class="header-img">
-        <img src="/public/images/logo.svg" alt="Splitter logo" />
+        <img src="/public/assests/images/logo.svg" alt="Splitter logo" />
       </div>
     </header>
 
@@ -21,9 +21,9 @@
         <div class="bill">
           <h4 class="title">Bill</h4>
 
-          <div class="input-wrapper">
-            <label for="bill">
-              <img src="/public/images/icon-dollar.svg" alt="dollar sign icon">
+          <div class="input-wrapper flex">
+            <label for="bill" class="icon">
+              <img src="/public/assests/images/icon-dollar.svg" alt="dollar sign icon">
             </label>
             <input type="number" name="bill" id="bill" />
           </div>
@@ -32,23 +32,23 @@
         <div class="tip-percentage">
           <h4 class="title">Select Tip %</h4>
 
-          <div class="input-wrapper">
+          <div class="btn-wrapper grid">
             <button class="btn tip-btn">5%</button>
             <button class="btn tip-btn">10%</button>
-            <button class="btn tip-btn">15%</button>
+            <button class="btn tip-btn selected">15%</button>
             <button class="btn tip-btn">25%</button>
             <button class="btn tip-btn">50%</button>
 
-            <input type="number" name="custom-tip" id="custom-tip" placeholder="Custom">
+            <input type="number" name="custom-tip" id="custom-tip" class="custom" placeholder="Custom">
           </div>
         </div>
 
         <div class="people">
           <h4 class="title">Number of People</h4>
 
-          <div class="input-wrapper">
-            <label for="people-qty">
-              <img src="/public/images/icon-person.svg" alt="person icon">
+          <div class="input-wrapper flex">
+            <label for="people-qty" class="icon">
+              <img src="/public/assests/images/icon-person.svg" alt="person icon">
             </label>
 
             <input type="number" name="people-qty" id="people-qty" placeholder="1">
@@ -57,7 +57,7 @@
       </section>
 
       <section class="results">
-        <div class="tip-amount">
+        <div class="tip-amount flex">
           <h4 class="result-title">
             Tip Amount
             <span class="title-span">/ person</span>
@@ -66,7 +66,7 @@
           <p class="result-text">$4.27</p>
         </div>
 
-        <div class="total-amount">
+        <div class="total-amount flex">
           <h4 class="result-title">
             Total
             <span class="title-span">/ person</span>

@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'SpaceMonoRegular';
+    src: url('./public/assests/fonts/SpaceMono-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'SpaceMonoBold';
+    src: url('./public/assests/fonts/SpaceMono-Bold.ttf');
+}
+
 :root {
     /* Colors */
     --strong-cyan: hsl(172, 67%, 45%);
@@ -70,7 +80,9 @@ select {
 body {
     min-height: 100vh;
     text-rendering: optimizeSpeed;
-    line-height: 1.5;
+
+    background-color: var(--light-grayish-cyan);
+    font-family: 'SpaceMonoRegular', Verdana, Geneva, Tahoma, sans-serif;
 }
 
 /* Utility classes */
@@ -82,7 +94,206 @@ body {
     display: flex;
 }
 
+/* Typography */
+.title {
+    color: var(--grayish-cyan);
+    margin-bottom: 0.5em;
+}
+
+button,
+input,
+.result-text {
+    font-size: 1.1rem;
+    font-family: 'SpaceMonoBold', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+button {
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding-block: 0.25em;
+
+    cursor: pointer;
+}
+
+input {
+    text-align: right;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    display: none;
+}
+
+input::placeholder {
+    color: var(--grayish-cyan);
+}
+
+input:focus-visible {
+    outline: none;
+}
+
+/* Layout */
+section div {
+    margin-bottom: 1em;
+}
+
+.container,
+.header-img img {
+    margin: 0 auto;
+}
+
+.container {
+    max-width: clamp(320px, 100%, 480px);
+}
+
+.header {
+    padding-block: 2em;
+}
+
+.main {
+    background-color: var(--white);
+    border-radius: 10px 10px 0 0;
+    padding: 1em 2em;
+}
+
+.input-wrapper {
+    background-color: var(--very-light-grayish-cyan);
+    padding: 0.25em 0.5em;
+    width: 100%;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.input-wrapper input {
+    margin-left: auto;
+    background-color: transparent;
+}
+
+.input-wrapper input,
+.custom {
+    border: none;
+    color: var(--very-dark-cyan);
+}
+
+.btn-wrapper {
+    grid-template-columns: repeat(2, minmax(5rem, 9rem));
+    gap: 1rem;
+    justify-content: center;
+}
+
+.tip-btn {
+    background-color: var(--very-dark-cyan);
+    color: var(--white);
+}
+
+.custom {
+    background-color: var(--very-light-grayish-cyan);
+    padding: 0 0.5em;
+}
+
+.selected {
+    background-color: var(--strong-cyan);
+    color: var(--very-dark-cyan);
+}
+
+.results {
+    background-color: var(--very-dark-cyan);
+    padding: 2em 1em 1em;
+    border-radius: 10px;
+}
+
+.result-title {
+    color: var(--white);
+    font-size: 0.9rem;
+}
+
+.title-span {
+    color: var(--grayish-cyan);
+    font-size: 0.75em;
+    display: block;
+}
+
+.result-text {
+    color: var(--strong-cyan);
+    font-size: 1.5rem;
+    margin-left: auto;
+    align-self: end;
+}
+
+.reset-btn {
+    width: 100%;
+    background-color: var(--strong-cyan);
+    color: var(--very-dark-cyan);
+}
+
+@media (min-width: 550px) {
+    body {
+        height: 100vh;
+
+        display: grid;
+        place-items: center;
+    }
+
+    .container {
+        max-width: clamp(481px, 90%, 1024px);
+    }
+
+    .header {
+        margin-bottom: 2em;
+    }
+
+    .main {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1em;
+
+        border-radius: 10px;
+        padding-block: 2em;
+    }
+
+    button,
+    input,
+    .result-text {
+        font-size: 1.3rem;
+    }
+
+    .btn-wrapper {
+        grid-template-columns: repeat(3, minmax(5rem, 9rem));
+    }
+
+    .results {
+        display: grid;
+    }
+
+    .result-text {
+        align-self: unset;
+    }
+
+    .reset {
+        align-self: end;
+    }
+}
+
+@media (min-width: 768px) {
+    button,
+    input,
+    .result-text {
+        font-size: 1.5rem;
+    }
+
+    .icon {
+        width: 20px;
+    }
+}
+
 /* 
+For Mobile Devices – 320px — 480px (20rem - 30rem).
+iPads and Tablets – 481px — 768px (30.07rem - 48rem).
+Laptops and small screen – 769px — 1024px (48.07rem - 64rem).
+Large screens and Desktops – 1025px — 1200px (64.07rem - 75rem).
+TV and Extra Large Screens – 1201px and more (75.07rem & 
+
 # Front-end Style Guide
 
 ## Layout
