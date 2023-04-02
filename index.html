@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="icon" type="image/svg+xml" href="/favicon-32x32.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tip Calculator | Juma Harun</title>
 </head>
@@ -22,7 +22,7 @@
         <div class="bill">
           <h4 class="title">Bill</h4>
 
-          <div class="input-wrapper flex">
+          <div class="input-wrapper flex outline">
             <label for="bill" class="icon">
               <img src="/assests/images/icon-dollar.svg" alt="dollar sign icon" />
             </label>
@@ -50,15 +50,16 @@
               50%
             </button>
 
-            <input type="number" name="custom-tip" id="custom-tip" class="custom" placeholder="Custom"
+            <input type="number" name="custom-tip" id="custom-tip" class="custom outline" placeholder="Custom"
               data-input="custom-tip" min="1" />
           </div>
         </div>
 
         <div class="people">
           <h4 class="title">Number of People</h4>
+          <span class="modal">Can't be zero</span>
 
-          <div class="input-wrapper flex">
+          <div class="input-wrapper flex outline">
             <label for="people-qty" class="icon">
               <img src="/assests/images/icon-person.svg" alt="person icon" />
             </label>
@@ -75,7 +76,7 @@
             <span class="title-span">/ person</span>
           </h4>
 
-          <p class="result-text" id="tipAmount">$0.00</p>
+          <p class="result-text" id="tipAmount"></p>
         </div>
 
         <div class="total-amount flex">
@@ -84,7 +85,7 @@
             <span class="title-span">/ person</span>
           </h4>
 
-          <p class="result-text" id="totalAmount">$0.00</p>
+          <p class="result-text" id="totalAmount"></p>
         </div>
 
         <div class="reset">

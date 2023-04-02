@@ -96,7 +96,7 @@ body {
 
 /* Typography */
 .title {
-    color: var(--grayish-cyan);
+    color: var(--dark-grayish-cyan);
     margin-bottom: 0.5em;
 }
 
@@ -128,10 +128,6 @@ input::placeholder {
     color: var(--grayish-cyan);
 }
 
-input:focus-visible {
-    outline: none;
-}
-
 /* Layout */
 section div {
     margin-bottom: 1em;
@@ -158,6 +154,11 @@ section div {
     padding: 1em 2em;
 
     height: 85vh;
+}
+
+.custom,
+.input-wrapper {
+    border-radius: 5px;
 }
 
 .input-wrapper {
@@ -196,9 +197,9 @@ section div {
     padding: 0 0.5em;
 }
 
-.selected {
-    background-color: var(--strong-cyan);
-    color: var(--very-dark-cyan);
+#people-qty:focus-visible,
+#bill:focus-visible {
+    outline: none;
 }
 
 .results {
@@ -227,11 +228,40 @@ section div {
 
 .reset-btn {
     width: 100%;
+    padding-block: 0.5em;
     background-color: var(--strong-cyan);
     color: var(--very-dark-cyan);
 }
 
-@media (min-width: 550px) {
+.reset-btn:hover {
+    background-color: var(--light-grayish-cyan);
+}
+
+.people .title {
+    display: inline-block;
+}
+
+.modal {
+    float: right;
+    color: red;
+    display: none;
+}
+
+/* Active states */
+.selected {
+    background-color: var(--light-grayish-cyan);
+    color: var(--very-dark-cyan);
+}
+
+.inp-active {
+    outline: 2px solid var(--strong-cyan);
+}
+
+.warning {
+    outline: 2px solid red;
+}
+
+@media (min-width: 600px) {
     body {
         height: 100vh;
 
@@ -240,7 +270,7 @@ section div {
     }
 
     .container {
-        max-width: clamp(481px, 90%, 1024px);
+        max-width: clamp(481px, 90%, 992px);
     }
 
     .header {
@@ -253,19 +283,14 @@ section div {
         grid-template-columns: repeat(2, 1fr);
         gap: 1em;
 
-        height: auto;
+        max-height: 55vh;
+        margin: 0 auto;
         border-radius: 10px;
         padding-block: 2.5em;
     }
 
-    button,
-    input,
-    .result-text {
-        font-size: 1.2rem;
-    }
-
     .btn-wrapper {
-        grid-template-columns: repeat(3, minmax(5rem, 9rem));
+        grid-template-columns: repeat(3, minmax(4rem, 9rem));
     }
 
     .results {
@@ -285,10 +310,15 @@ section div {
     button,
     input,
     .result-text {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
 
     .icon {
         width: 20px;
+    }
+
+    .main {
+        width: 85%;
+        height: auto;
     }
 }

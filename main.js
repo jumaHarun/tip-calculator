@@ -4,6 +4,8 @@ import './style.css';
 const tipAmount = document.getElementById('tipAmount');
 const totalAmount = document.getElementById('totalAmount');
 const tipBtns = document.querySelectorAll('button.tip-btn');
+const outlinedEls = document.querySelectorAll('.outline');
+const modal = document.querySelector('.modal');
 
 // tip calculator object
 class TipCalculator {
@@ -19,19 +21,13 @@ class TipCalculator {
     }
 
     calculateTipAmountPerPerson() {
-        return (this.tipAmount / this.peopleNum).toLocaleString('en-Us', {
-            style: 'currency',
-            currency: 'USD',
-        });
+        return this.tipAmount / this.peopleNum;
     }
 
     calculateTotalAmountPerPerson() {
         const grandTotal = (this.tipAmount + this.totalBill) / this.peopleNum;
 
-        return grandTotal.toLocaleString('en-Us', {
-            style: 'currency',
-            currency: 'USD',
-        });
+        return grandTotal;
     }
 }
 
@@ -43,34 +39,40 @@ let peopleNum;
 // event listeners
 document.addEventListener('click', (e) => {
     handleBtnClick(e.target);
-    splitter(totalBill, tipPercentage, peopleNum);
+    calculator(totalBill, tipPercentage, peopleNum);
 });
 
-document.addEventListener('keyup', (e) => {
+document.addEventListener('input', (e) => {
     handleInputChange(e.target);
-    splitter(totalBill, tipPercentage, peopleNum);
+    calculator(totalBill, tipPercentage, peopleNum);
+});
+
+document.addEventListener('mousedown', (e) => {
+    handleInputFocus(e.target);
 });
 
 // functions
-function splitter(bill, percentage, people) {
+function calculator(bill, percentage, people) {
     const tipCalculator = new TipCalculator(bill, percentage, people);
+    const tip = tipCalculator.calculateTipAmountPerPerson();
+    const total = tipCalculator.calculateTotalAmountPerPerson();
 
-    tipAmount.textContent = tipCalculator.calculateTipAmountPerPerson();
-    totalAmount.textContent = tipCalculator.calculateTotalAmountPerPerson();
+    render(tip, total);
 }
 
 function handleInputChange(target) {
     if (target.dataset.input) {
-        const value = JSON.parse(target.value);
+        const value = target.value > 0 && Number(target.value);
 
         if (target.dataset.input === 'bill') {
             totalBill = value;
         } else if (target.dataset.input === 'custom-tip') {
             tipPercentage = value;
         } else if (target.dataset.input === 'people-qty') {
-            if (value === 0) {
-                console.log('Number of people cannot be 0');
+            if (value == 0) {
+                modal.style.display = 'initial';
             } else if (value >= 1) {
+                modal.style.display = 'none';
                 peopleNum = value;
             }
         }
@@ -79,11 +81,26 @@ function handleInputChange(target) {
 
 function handleBtnClick(target) {
     if (target.dataset.btn === 'tip') {
-        tipPercentage = JSON.parse(target.value);
+        tipPercentage = Number(target.value);
         removeSelectedClass(tipBtns);
         target.classList.add('selected');
     } else if (target.dataset.btn === 'reset') {
         reset();
+    }
+}
+
+function handleInputFocus(target) {
+    outlinedEls.forEach((el) => {
+        el.classList.remove('inp-active');
+    });
+
+    if (target.dataset.input === 'custom-tip') {
+        target.classList.add('inp-active');
+    } else if (
+        target.dataset.input === 'bill' ||
+        target.dataset.input === 'people-qty'
+    ) {
+        target.parentElement.classList.add('inp-active');
     }
 }
 
@@ -95,10 +112,29 @@ function removeSelectedClass(btnsList) {
     });
 }
 
+function render(tip = 0, total = 0) {
+    tipAmount.textContent = tip.toLocaleString('en-Us', {
+        style: 'currency',
+        currency: 'USD',
+    });
+
+    totalAmount.textContent = total.toLocaleString('en-Us', {
+        style: 'currency',
+        currency: 'USD',
+    });
+}
+
+render();
+
 function reset() {
     document.querySelector('#bill').value = '';
     document.querySelector('#custom-tip').value = '';
     document.querySelector('#people-qty').value = '';
 
+    totalBill = 0;
+    tipPercentage = 0;
+
     removeSelectedClass(tipBtns);
+
+    render();
 }
